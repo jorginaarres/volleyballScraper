@@ -9,9 +9,12 @@ Web de la federació: http://www.rfevb.com/primera-division-femenina-grupo-a-cla
 
 Aquesta pràctica l'he desenvolupat, de forma individual.
 
-Autora: Jorgina Arrés Cardona
+Autora: <b>Jorgina Arrés Cardona</b>
 
 <h2>Descripció dels fitxers</h2>
+
+- <b>main.py:</b>
+- <b>volleyScraper.py:</b>
 
 Per poder executar l'script s'han de seguir els següents passos: 
 1. Instal·lar dependències/llibreries amb la seguent comanda: 
