@@ -1,5 +1,5 @@
 <h1>Pràctica 1: Web scraping </h1>
-
+<h2>Descripció de VolleyScraper </h2>
 Aquest repositori conté un web scraper fet la realizació de la Pràctica 1 de l'assignatura Tipologia i cicle de vida de les dades del Màster en Ciència de Dades de la UOC.
 
 El volleyScraper extreu dades dels resultats i de les classificacions de la Real Federación Española de Voleibol, en concret els resultats de la Primera Divisió Femenina Grup A Classificació. Tenint en compte les diferents jornades.
