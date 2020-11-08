@@ -6,7 +6,7 @@ class volleyScraper():
 
     def __init__(self):
         self.dataResultados = []
-        print ("init")
+        self.dataClasificacion = []
 
     def __clean_resultados(self, equipos, fecha_hora,sets_resultados):
 
@@ -60,7 +60,13 @@ class volleyScraper():
 
         self.__clean_resultados(equipos,fecha_hora,sets_resultados)
 
+    def __procesa_clasificacion(self, item, jornada):
 
+       # posicion equipo ptos j g3 g2 p1 p0 sf sc pf pc sanciones
+       self.dataClasificacion.append(jornada)
+
+       for itemTd in item.find_all('td'):
+           self.dataClasificacion.append(itemTd.get_text())
 
     def scrape(self):
         i = 1
@@ -97,15 +103,14 @@ class volleyScraper():
                     continue
 
                 if es_resultado:
-                    print ("ahora estamos en resultados")
                     self.__procesa_resultado(item)
 
                 elif es_clasificacion:
-                    print("ahora estamos en clasificacion")
+                    self.__procesa_clasificacion(item, i-1)
                 elif es_proximos_encuentros:
-                    print ("ahora estamos en proximos encuentros")
+                    continue
 
-    def toCSV(self, filename):
+    def resultadosToCSV(self, filename):
 
         file = open( filename, "w+")
 
@@ -114,7 +119,6 @@ class volleyScraper():
         writer = csv.DictWriter(file, fieldnames=fieldnames)
 
         writer.writeheader()
-
         contador = 0
 
         while contador < self.dataResultados.__len__():
@@ -124,3 +128,20 @@ class volleyScraper():
                              'Resultado_set3':self.dataResultados[contador+9],'Resultado_set4': self.dataResultados[contador+10],'Resultado_set5':self.dataResultados[contador+11]})
             contador = contador + 12
 
+
+    def clasificacionToCSV(self, filename):
+
+        file = open(filename, "w+")
+
+        fieldnames = ['jornada', 'posicion_equipo', 'ptos', 'j', 'g3', 'g2', 'p1', 'p0', 'sf', 'sc', 'pf', 'pc', 'sanciones']
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+
+        writer.writeheader()
+        contador = 0
+
+        while contador < self.dataResultados.__len__():
+            writer.writerow({'jornada': self.dataClasificacion[contador], 'posicion_equipo': self.dataClasificacion[contador + 1], 'ptos': self.dataClasificacion[contador + 2],
+                             'j': self.dataClasificacion[contador+3],  'g3': self.dataClasificacion[contador+4], 'g2': self.dataClasificacion[contador+5],
+                             'p1': self.dataClasificacion[contador+6], 'p0': self.dataClasificacion[contador+7],'sf': self.dataClasificacion[contador+8],
+                             'sc':self.dataClasificacion[contador+9],'pf': self.dataClasificacion[contador+10],'pc':self.dataClasificacion[contador+11],'sanciones':self.dataClasificacion[contador+12]})
+            contador = contador + 13

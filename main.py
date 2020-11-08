@@ -12,10 +12,12 @@ from urllib.request import urlopen
 #print(soup.prettify()) # print the parsed data of html
 from volleyScraper import volleyScraper
 
-filename_results = "dataset.csv"
+filename_results = "dataset_resultados.csv"
+filename_clasificacion = "dataset_clasificacion.csv"
 
 scraper = volleyScraper()
 scraper.scrape()
-scraper.toCSV(filename_results)
+scraper.resultadosToCSV(filename_results)
+scraper.clasificacionToCSV(filename_clasificacion)
 
 
