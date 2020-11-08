@@ -112,7 +112,7 @@ class volleyScraper():
 
     def resultadosToCSV(self, filename):
 
-        file = open( filename, "w+")
+        file = open("csv/"+ filename, "w+")
 
 
         fieldnames = ['Numero', 'Equipo1', 'Equipo2','Fecha', 'Hora', 'Sets_ganados_equipo1', 'Sets_ganados_equipo2', 'Resultado_set1','Resultado_set2','Resultado_set3','Resultado_set4','Resultado_set5']
@@ -131,7 +131,7 @@ class volleyScraper():
 
     def clasificacionToCSV(self, filename):
 
-        file = open(filename, "w+")
+        file = open("csv/"+filename, "w+")
 
         fieldnames = ['jornada', 'posicion_equipo', 'ptos', 'j', 'g3', 'g2', 'p1', 'p0', 'sf', 'sc', 'pf', 'pc', 'sanciones']
         writer = csv.DictWriter(file, fieldnames=fieldnames)

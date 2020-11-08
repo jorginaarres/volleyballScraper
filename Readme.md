@@ -13,8 +13,8 @@ Autora: <b>Jorgina Arrés Cardona</b>
 
 <h2>Descripció dels fitxers</h2>
 
-- <b>main.py:</b>
-- <b>volleyScraper.py:</b>
+- <b>main.py:</b> Encarregat d'iniciar l'scrapping i cridar-lo per guardar les dades en els csv
+- <b>volleyScraper.py:</b> Implementació de l'scraper dels resultats de voleibol
 
 Per poder executar l'script s'han de seguir els següents passos: 
 1. Instal·lar dependències/llibreries amb la seguent comanda: 
