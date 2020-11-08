@@ -139,7 +139,7 @@ class volleyScraper():
         writer.writeheader()
         contador = 0
 
-        while contador < self.dataResultados.__len__():
+        while contador < self.dataClasificacion.__len__():
             writer.writerow({'jornada': self.dataClasificacion[contador], 'posicion_equipo': self.dataClasificacion[contador + 1], 'ptos': self.dataClasificacion[contador + 2],
                              'j': self.dataClasificacion[contador+3],  'g3': self.dataClasificacion[contador+4], 'g2': self.dataClasificacion[contador+5],
                              'p1': self.dataClasificacion[contador+6], 'p0': self.dataClasificacion[contador+7],'sf': self.dataClasificacion[contador+8],
